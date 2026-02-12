@@ -1,17 +1,26 @@
 package com.example.cinemabookingsystem.model;
 
-public class CinemaBranch {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-    private int id;
+@Table("cinema_branches")
+public class CinemaBranch {
+    @Id
+    private Integer id;
+
+    @Column("branch_name")
     private String branchName;
+
+    @Column("city")
     private String city;
 
     // Getters and Setters
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

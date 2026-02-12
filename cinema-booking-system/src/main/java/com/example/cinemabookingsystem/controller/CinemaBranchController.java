@@ -4,34 +4,36 @@ import com.example.cinemabookingsystem.model.CinemaBranch;
 import com.example.cinemabookingsystem.repository.CinemaBranchRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/cinema-branches")  // Дұрыс жолдың аннотациясы
+@RequestMapping("/api/cinema-branches")
 public class CinemaBranchController {
 
-    private final CinemaBranchRepository cinemaBranchRepository;
+    private final CinemaBranchRepository repository;
 
-    public CinemaBranchController(CinemaBranchRepository cinemaBranchRepository) {
-        this.cinemaBranchRepository = cinemaBranchRepository;
+    public CinemaBranchController(CinemaBranchRepository repository) {
+        this.repository = repository;
     }
 
     @GetMapping
-    public Iterable<CinemaBranch> getAllCinemaBranches() {
-        return cinemaBranchRepository.findAll();
+    public List<CinemaBranch> getAll() {
+        return (List<CinemaBranch>) repository.findAll();
     }
 
     @PostMapping
-    public CinemaBranch addCinemaBranch(@RequestBody CinemaBranch cinemaBranch) {
-        return cinemaBranchRepository.save(cinemaBranch);
+    public CinemaBranch create(@RequestBody CinemaBranch branch) {
+        return repository.save(branch);
     }
 
     @PutMapping("/{id}")
-    public CinemaBranch updateCinemaBranch(@PathVariable int id, @RequestBody CinemaBranch cinemaBranch) {
-        cinemaBranch.setId(id);
-        return cinemaBranchRepository.save(cinemaBranch);
+    public CinemaBranch update(@PathVariable Integer id, @RequestBody CinemaBranch branch) {
+        branch.setId(id);
+        return repository.save(branch);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCinemaBranch(@PathVariable int id) {
-        cinemaBranchRepository.deleteById(id);
+    public void delete(@PathVariable Integer id) {
+        repository.deleteById(id);
     }
 }

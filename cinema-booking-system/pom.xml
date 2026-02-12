@@ -1,20 +1,21 @@
 <dependencies>
-    <!-- Spring Boot Starter Web for REST API -->
+    <!-- JPA тәуелділігі -->
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
     </dependency>
 
-    <!-- Spring Boot Starter Data JDBC for Data Persistence -->
+    <!-- Spring Data JPA тәуелділігі -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jdbc</artifactId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
 
-    <!-- PostgreSQL Driver for JDBC connection -->
+    <!-- PostgreSQL JDBC тәуелділігі (деректер қорына қосылу үшін) -->
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.2.5</version>
+        <version>42.2.23</version>
     </dependency>
 </dependencies>
